@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+        direction: rtl; /* Right-to-left direction */
+        text-align: center; /* Center-align text */
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.8); /* Slightly opaque white background for form container */
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%; /* You can adjust the width as needed */
+        direction: ltr; /* Reset direction to left-to-right for form elements */
+        text-align: left; /* Reset text alignment to left */
+        margin: auto; /* Center horizontally */
+    }
+
+    /* Adjustments for smaller screens */
+    @media (max-width: 768px) {
+        .form-container {
+            width: 80%; /* Adjust width for smaller screens */
+        }
+    }
+</style>
+
+<div class="center">
+    <form action="" method="post" class="form-container ">
+        {% csrf_token %}
+        <h3>سجل الآن</h3><br>
+
+        {{ form.as_p }}
+        <div class="button-container">
+            <input type="submit" class="btn btn-primary" value="تسجيل">
+            <input type="reset" class="btn btn-danger"  value="مسح المحتوى">
+        </div>
+        
+    </form>
+</div>
+<style>
+    .button-container {
+        display: flex; /* Use flexbox */
+        justify-content: center; /* Align items with space between them */
+        margin-top: 20px; /* Add some top margin for spacing */
+    }</style>
+{% endblock content %}
